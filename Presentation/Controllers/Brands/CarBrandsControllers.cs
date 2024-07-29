@@ -16,9 +16,9 @@ using System.Threading.Tasks;
 namespace Presentation.Controllers.Brands
 {
     [Route("api/brands")]
-    public sealed class BrandsControllers : BaseController
+    public sealed class CarBrandsControllers : BaseController
     {
-        public BrandsControllers(ISender sender) : base(sender)
+        public CarBrandsControllers(ISender sender) : base(sender)
         {
         }
 

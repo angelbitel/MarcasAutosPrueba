@@ -2,11 +2,6 @@
 using Domain.Enum;
 using Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistence.Repositories
 {
@@ -30,7 +25,7 @@ namespace Persistence.Repositories
         public async Task<List<Brand>> GetBrandsByNameAsync(string name, CancellationToken cancellationToken = default)
         {
             return await _dbContext.Set<Brand>()
-                .Where(w => w.Name == name)
+                .Where(w => (w.Name??"").ToLower() == name.ToLower())
                 .AsNoTracking()
                 .ToListAsync();
         }
